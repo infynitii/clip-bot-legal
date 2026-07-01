@@ -4,21 +4,75 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marqxi Clip Bot</title>
+  <meta name="description" content="Marqxi Clip Bot is a private, single-operator tool that publishes operator-approved short video clips to the operator's own TikTok account using the TikTok Content Posting API.">
+  <link rel="icon" type="image/png" href="./icon.png">
   <style>
-    body { max-width: 720px; margin: 2.5rem auto; padding: 0 1.25rem;
-           font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-           color: #1a1a1a; background: #fff; }
-    h1 { font-size: 1.6rem; }
-    a { color: #0b65d8; }
+    :root { --ink:#1a1a1a; --muted:#666; --line:#e6e6e6; --brand:#0b65d8; }
+    body { max-width: 760px; margin: 0 auto; padding: 0 1.25rem 4rem;
+           font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+           color: var(--ink); background: #fff; }
+    header { display: flex; align-items: center; gap: 1rem; margin: 2.5rem 0 1.5rem; }
+    header img { width: 64px; height: 64px; border-radius: 14px; }
+    h1 { font-size: 1.7rem; margin: 0; }
+    .tagline { color: var(--muted); margin: .15rem 0 0; }
+    h2 { font-size: 1.15rem; margin-top: 2.25rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: .3rem 0; }
+    a { color: var(--brand); }
+    code { background: #f2f2f2; padding: .1rem .35rem; border-radius: 3px; font-size: .92em; }
+    .links { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+    footer { margin-top: 2.5rem; color: var(--muted); font-size: .88rem; }
   </style>
 </head>
 <body>
-  <h1>Marqxi Clip Bot</h1>
-  <p>A private personal automation tool that publishes approved short video
-  clips to the operator's own TikTok account via the TikTok Content Posting API.</p>
+  <header>
+    <img src="./icon.png" alt="Marqxi Clip Bot icon">
+    <div>
+      <h1>Marqxi Clip Bot</h1>
+      <p class="tagline">Private clip-to-TikTok publishing for a single operator.</p>
+    </div>
+  </header>
+
+  <p>Marqxi Clip Bot is a private, personal automation tool. It helps its single
+  operator turn their own longer videos and livestream recordings into short
+  clips, and — once the operator has reviewed and approved a clip — publishes it
+  to <strong>the operator's own TikTok account</strong> through the official
+  TikTok Content Posting API. It is not a consumer product and has no users other
+  than the operator.</p>
+
+  <h2>What it does</h2>
   <ul>
-    <li><a href="./privacy.html">Privacy Policy</a></li>
-    <li><a href="./terms.html">Terms of Service</a></li>
+    <li>Generates short vertical/widescreen clips from the operator's own source video.</li>
+    <li>Presents each clip to the operator in a private review dashboard.</li>
+    <li>Publishes <strong>only clips the operator explicitly approves</strong> — nothing is posted automatically without that approval.</li>
+    <li>Posts solely to the operator's own connected TikTok account.</li>
   </ul>
+
+  <h2>How it uses TikTok</h2>
+  <ul>
+    <li><strong>Login Kit</strong> — the operator connects their own TikTok account via TikTok's OAuth flow.</li>
+    <li><strong>Content Posting API (Direct Post)</strong> — approved clips are uploaded and published with the <code>video.publish</code> scope.</li>
+    <li>The only scopes requested are <code>user.info.basic</code> and <code>video.publish</code>. The App never reads followers, messages, viewing history, or any other user's data.</li>
+  </ul>
+
+  <h2>Data &amp; privacy</h2>
+  <p>The App accesses only what it needs to post the operator's approved clips to
+  the operator's own account. OAuth tokens are stored privately on the operator's
+  own server, are never shared with third parties, and are deleted on request or
+  when access is revoked. Full details are in the
+  <a href="./privacy.html">Privacy Policy</a>.</p>
+
+  <div class="links">
+    <p><strong>Policies:</strong>
+      <a href="./privacy.html">Privacy Policy</a> &middot;
+      <a href="./terms.html">Terms of Service</a></p>
+    <p><strong>Contact:</strong> <a href="mailto:m.fleming206@gmail.com">m.fleming206@gmail.com</a></p>
+  </div>
+
+  <footer>
+    <p>Marqxi Clip Bot is an independent personal project. It is not affiliated
+    with, endorsed by, or sponsored by TikTok. "TikTok" is a trademark of its
+    respective owner.</p>
+  </footer>
 </body>
 </html>
